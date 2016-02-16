@@ -2810,6 +2810,12 @@ protected function checkQuery($sql, $object_name = false)
 		$values['date_created'] = $this->massageValue(TimeDate::getInstance()->nowDb(), $fieldDefs['date_created'] );
 		$values['created_by'] = $this->massageValue($current_user->id, $fieldDefs['created_by']);
 
+		/* START audit_description HS321 */
+		if(!empty($fieldDefs['audit_description']) && !empty($_SESSION['audit_description'])) {
+			$values['audit_description'] = $this->massageValue($_SESSION['audit_description'], $fieldDefs['audit_description']);
+		}
+		/* END audit_description HS321 */
+
 		$sql .= "(".implode(",", array_keys($values)).") ";
 		$sql .= "VALUES(".implode(",", $values).")";
 		return $sql;

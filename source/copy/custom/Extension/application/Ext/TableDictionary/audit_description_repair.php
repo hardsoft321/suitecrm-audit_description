@@ -4,7 +4,6 @@
  */
 if(!empty($beanFiles) && !empty($GLOBALS['log'])) { //рано еще, если нет log'а
     $dictionary_audit1 = isset($dictionary['audit']) ? $dictionary['audit'] : null;
-    var_dump( $dictionary_audit1 );
     require('metadata/audit_templateMetaData.php');
     $dictionary['audit']['indices'] = array();
     foreach ($beanFiles as $bean => $file){
