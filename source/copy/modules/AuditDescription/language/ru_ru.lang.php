@@ -9,4 +9,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 $mod_strings = array(
     'LBL_AUDIT_DESCRIPTION_TITLE' => 'Режим примечания',
     'LBL_AUDIT_DESCRIPTION' => 'Примечание',
+    'MSG_AUDIT_REL_ADD' => 'Добавление связи - модуль %1, запись "%2"',
+    'MSG_AUDIT_REL_DELETE' => 'Удаление связи - модуль %1, запись "%2"',
+    'MSG_AUDIT_MERGE' => 'Слияние с дубликатами',
 );

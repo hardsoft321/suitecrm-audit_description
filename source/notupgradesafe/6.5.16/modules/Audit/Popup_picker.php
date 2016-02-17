@@ -171,6 +171,9 @@ EOHTML;
                 'AFTER_VALUE' => $after_value,
                 'CREATED_BY' => $audit['created_by'],
                 'DATE_CREATED' => $audit['date_created'],
+                /* START audit_description HS321 */
+                'AUDIT_DESCRIPTION' => $audit['audit_description'],
+                /* END audit_description HS321 */
 			);
 
 			$xtpl->assign("ACTIVITY", $activity_fields);

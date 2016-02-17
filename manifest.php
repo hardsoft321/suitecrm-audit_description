@@ -43,10 +43,58 @@ $installdefs = array(
             'to_module' => 'application',
             'language' => 'en_us',
         ),
+        array (
+            'from' => '<basepath>/source/language/Audit/ru_ru.audit_description.php',
+            'to_module' => 'Audit',
+            'language' => 'ru_ru',
+        ),
+        array (
+            'from' => '<basepath>/source/language/Audit/en_us.audit_description.php',
+            'to_module' => 'Audit',
+            'language' => 'en_us',
+        ),
     ),
     'linkdefs' => array(
         array(
             'from'=>'<basepath>/source/linkdefs/audit_description.php',
+        ),
+    ),
+    'logic_hooks' => array(
+        array(
+            'module' => 'Users',
+            'hook' => 'after_relationship_add',
+            'order' => 100,
+            'description' => 'Audit relationship adding',
+            'file' => 'modules/AuditDescription/AuditDescriptionHooks.php',
+            'class' => 'AuditDescriptionHooks',
+            'function' => 'afterRelationshipSave',
+        ),
+        array(
+            'module' => 'Users',
+            'hook' => 'after_relationship_delete',
+            'order' => 100,
+            'description' => 'Audit relationship deletion',
+            'file' => 'modules/AuditDescription/AuditDescriptionHooks.php',
+            'class' => 'AuditDescriptionHooks',
+            'function' => 'afterRelationshipSave',
+        ),
+        array(
+            'module' => '',
+            'hook' => 'before_save',
+            'order' => 100,
+            'description' => 'Audit description before save',
+            'file' => 'modules/AuditDescription/AuditDescriptionHooks.php',
+            'class' => 'AuditDescriptionHooks',
+            'function' => 'beforeSave',
+        ),
+        array(
+            'module' => '',
+            'hook' => 'after_save',
+            'order' => 100,
+            'description' => 'Audit description after save',
+            'file' => 'modules/AuditDescription/AuditDescriptionHooks.php',
+            'class' => 'AuditDescriptionHooks',
+            'function' => 'afterSave',
         ),
     ),
 );

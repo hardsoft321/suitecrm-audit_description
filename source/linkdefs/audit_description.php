@@ -1,5 +1,5 @@
 <?php
-if(is_admin($GLOBALS['current_user'])) {
+if(is_admin($GLOBALS['current_user']) || !empty($_SESSION['audit_description'])) {
     $label = $GLOBALS['app_strings']['LBL_AUDIT_DESCRIPTION_TITLE'];
     if(!empty($_SESSION['audit_description'])) {
         $label .= " <span style=\"color:red\">({$_SESSION['audit_description']})</span>";
