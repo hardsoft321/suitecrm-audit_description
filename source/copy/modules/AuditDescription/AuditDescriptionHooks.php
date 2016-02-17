@@ -36,6 +36,9 @@ class AuditDescriptionHooks
 
     public function afterSave($bean, $event)
     {
+        if(!$bean->is_AuditEnabled()) {
+            return;
+        }
         if(empty($bean->fetched_row_id)) {
             $change = array(
                 'field_name' => 'id',
