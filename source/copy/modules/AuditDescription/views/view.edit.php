@@ -24,4 +24,13 @@ class AuditDescriptionViewEdit extends ViewEdit
         $params[] = $mod_strings['LBL_AUDIT_DESCRIPTION_TITLE'];
         return $params;
     }
+
+    function display()
+    {
+        parent::display();
+        if(!empty($_SESSION['flash_message'])) {
+            echo '<script>ajaxStatus.flashStatus(',json_encode($_SESSION['flash_message']),', 3000);</script>';
+            unset($_SESSION['flash_message']);
+        }
+    }
 }

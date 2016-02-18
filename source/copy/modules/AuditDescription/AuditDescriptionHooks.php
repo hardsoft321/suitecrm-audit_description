@@ -59,4 +59,18 @@ class AuditDescriptionHooks
             $bean->db->save_audit_records($bean, $change);
         }
     }
+
+    public function afterDelete($bean, $event)
+    {
+        if(!$bean->is_AuditEnabled()) {
+            return;
+        }
+        $change = array(
+            'field_name' => 'id',
+            'data_type' => 'id',
+            'before' => $bean->id,
+            'after' => '',
+        );
+        $bean->db->save_audit_records($bean, $change);
+    }
 }

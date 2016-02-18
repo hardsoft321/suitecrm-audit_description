@@ -10,7 +10,7 @@ $manifest = array(
     'is_uninstallable' => true,
     'published_date' => '2016-02-12',
     'type' => 'module',
-    'version' => '1.0.0',
+    'version' => '1.0.1',
 );
 $installdefs = array(
     'id' => 'audit_description',
@@ -95,6 +95,15 @@ $installdefs = array(
             'file' => 'modules/AuditDescription/AuditDescriptionHooks.php',
             'class' => 'AuditDescriptionHooks',
             'function' => 'afterSave',
+        ),
+        array(
+            'module' => '',
+            'hook' => 'after_delete',
+            'order' => 100,
+            'description' => 'Audit description after delete',
+            'file' => 'modules/AuditDescription/AuditDescriptionHooks.php',
+            'class' => 'AuditDescriptionHooks',
+            'function' => 'afterDelete',
         ),
     ),
 );

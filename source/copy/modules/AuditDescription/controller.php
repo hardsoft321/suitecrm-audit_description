@@ -22,7 +22,8 @@ class AuditDescriptionController extends SugarController
 
     protected function post_save()
     {
-        $url = "index.php?module=Administration";
+        $_SESSION['flash_message'] = $GLOBALS['app_strings']['LBL_SAVED'];
+        $url = "index.php?module=AuditDescription&action=EditView";
         $this->set_redirect($url);
     }
 }
