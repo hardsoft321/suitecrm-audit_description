@@ -26,4 +26,10 @@ class AuditDescriptionController extends SugarController
         $url = "index.php?module=AuditDescription&action=EditView";
         $this->set_redirect($url);
     }
+
+    protected function action_listview()
+    {
+        $url = "index.php?module=Administration";
+        $this->set_redirect($url);
+    }
 }
