@@ -9,7 +9,7 @@ class AuditDescriptionHooks
     public function afterRelationshipSave($bean, $event, $arguments)
     {
         if($bean->is_AuditEnabled()) {
-            $mod_strings = return_module_language($GLOBALS['curent_language'], 'AuditDescription');
+            $mod_strings = return_module_language($GLOBALS['current_language'], 'AuditDescription');
             $msg = '';
             if($event == 'after_relationship_add') {
                 $msg .= $mod_strings['MSG_AUDIT_REL_ADD'];
